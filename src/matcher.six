@@ -1,0 +1,18 @@
+var { keys } = Object;
+
+export function create(map) {
+    var pattern = "",
+        parts   = keys(map);
+
+    parts.forEach(key => pattern += map[key].source);
+
+    parts.unshift("full");
+
+    return str => {
+        var match = str.match(pattern);
+
+        match && parts.forEach((key, idx) => match[key] = match[idx]);
+
+        return match;
+    }
+}

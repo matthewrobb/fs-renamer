@@ -1,0 +1,8 @@
+var shell = require("shelljs"),
+    glob  = require("glob");
+
+import { create : createMatcher } from "./matcher";
+
+glob("test/*", {}, (err, files) => {
+    console.log(files);
+});
